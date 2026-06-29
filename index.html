@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoteApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">NoteApp</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle">✕</button>
+    </div>
+    <div class="search-wrap">
+      <input type="search" id="searchInput" class="search-input" placeholder="Search notes…" autocomplete="off" />
+      <span class="search-icon">⌕</span>
+    </div>
+    <div class="tag-filter" id="tagFilter">
+      <span class="tag-filter-label">Tags</span>
+      <div class="tag-list" id="tagList"></div>
+    </div>
+    <div class="sidebar-footer">
+      <span id="noteCount" class="note-count">0 notes</span>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <button class="topbar-btn" id="menuBtn">☰</button>
+      <h1 class="topbar-title" id="topbarTitle">All Notes</h1>
+      <button class="btn-new" id="newNoteBtn">+ New Note</button>
+    </header>
+    <main class="content" id="content">
+      <div class="notes-grid" id="notesGrid"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <p class="empty-icon">✦</p>
+        <p class="empty-heading">Nothing here yet</p>
+        <p class="empty-sub">Create your first note to get started.</p>
+        <button class="btn-new" onclick="app.openEditor()">+ New Note</button>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <input type="text" id="editorTitle" class="editor-title" placeholder="Note title…" maxlength="120" />
+        <div class="modal-actions">
+          <button class="icon-btn pin-btn" id="pinBtn" title="Pin note">⊙</button>
+          <button class="icon-btn delete-btn hidden" id="deleteBtn" title="Delete note">🗑</button>
+          <button class="icon-btn close-btn" id="closeBtn" title="Close">✕</button>
+        </div>
+      </div>
+      <div class="color-picker-row">
+        <span class="color-picker-label">Color</span>
+        <div class="color-swatches" id="colorSwatches"></div>
+      </div>
+      <div class="tag-input-row">
+        <span class="tag-input-label">Tags</span>
+        <div class="tag-input-wrap" id="tagInputWrap">
+          <div class="editor-tags" id="editorTags"></div>
+          <input type="text" id="tagInput" class="tag-input" placeholder="Add tag…" maxlength="30" />
+        </div>
+      </div>
+      <textarea id="editorContent" class="editor-content" placeholder="Write your note here…"></textarea>
+      <div class="modal-footer">
+        <span class="editor-meta" id="editorMeta"></span>
+        <div class="modal-footer-btns">
+          <button class="btn-cancel" id="cancelBtn">Cancel</button>
+          <button class="btn-save" id="saveBtn">Save Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
