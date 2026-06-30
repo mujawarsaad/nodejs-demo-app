@@ -1,0 +1,32 @@
+# DevOps Internship - Task 1: CI/CD Pipeline using GitHub Actions
+
+As part of my DevOps Internship at Elevate Labs, I completed a hands-on task to automate the build and deployment workflow of a Node.js application using GitHub Actions and Docker.
+
+### What I implemented
+
+* Created a CI/CD pipeline using GitHub Actions.
+* Automated dependency installation and test execution.
+* Built a Docker image for the Node.js application.
+* Pushed the Docker image to Docker Hub automatically on code changes.
+* Configured workflow triggers on GitHub repository events.
+
+### Technologies Used
+
+* GitHub
+* GitHub Actions
+* Node.js
+* Docker
+* Docker Hub
+
+### Key Learnings
+
+* Understanding the CI/CD lifecycle and automation process.
+* Writing and configuring GitHub Actions workflow YAML files.
+* Working with GitHub Actions runners, jobs, and steps.
+* Managing secrets securely in GitHub Actions.
+* Building and publishing Docker images.
+* Troubleshooting CI/CD pipeline issues and deployment workflows.
+
+### Outcome
+
+This task provided practical experience in implementing CI/CD pipelines and helped me understand how modern DevOps teams automate software delivery processes.
