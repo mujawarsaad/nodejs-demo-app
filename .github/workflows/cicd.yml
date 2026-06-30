@@ -36,3 +36,25 @@ jobs:
           context: .
           push: true
           tags: mujawarsaad/noteapp:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+            docker pull mujawarsaad/noteapp:latest
+            docker stop noteapp || true
+            docker rm noteapp || true
+            docker run -d \
+              --name noteapp \
+              --restart unless-stopped \
+              -p 3000:3000 \
+              mujawarsaad/noteapp:latest
